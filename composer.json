@@ -13,7 +13,6 @@
     "license": "Apache-2.0",
     "require": {
         "php": ">=7.3",
-        "brainmaestro/composer-git-hooks": "^2.8",
         "hyperf/cache": "~2.2.0",
         "hyperf/command": "~2.2.0",
         "hyperf/config": "~2.2.0",
@@ -31,6 +30,8 @@
         "qeezer/hyperf-api-responder": "^1.0.0"
     },
     "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.8",
+        "roave/security-advisories": "dev-latest",
         "friendsofphp/php-cs-fixer": "^3.0",
         "hyperf/devtool": "~2.2.0",
         "hyperf/ide-helper": "~2.2.0",
