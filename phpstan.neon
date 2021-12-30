@@ -5,6 +5,10 @@
 #
 parameters:
   reportUnmatchedIgnoredErrors: false
+  level: 4
+  paths:
+    - app
+    - test
   ignoreErrors:
     - '#Static call to instance method Hyperf\\HttpServer\\Router\\Router::[a-zA-Z0-9\\_]+\(\)#'
     - '#Static call to instance method Hyperf\\DbConnection\\Db::[a-zA-Z0-9\\_]+\(\)#'
