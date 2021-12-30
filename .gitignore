@@ -11,3 +11,5 @@ vendor/
 .DS_Store
 .phpunit*
 *.cache
+cghooks.lock
+
