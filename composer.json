@@ -96,6 +96,11 @@
         "start": [
             "Composer\\Config::disableProcessTimeout",
             "php ./bin/hyperf.php start"
-        ]
+        ],
+        "watch": [
+            "Composer\\Config::disableProcessTimeout",
+            "php ./bin/hyperf.php server:watch"
+        ],
+        "service-doc": "phpdoc -d ./app/Rpc/ServiceContract/ -t ./doc/service"
     }
 }
