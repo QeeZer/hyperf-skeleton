@@ -87,12 +87,13 @@
         "post-autoload-dump": [
             "rm -rf runtime/container"
         ],
-        "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
-        "post-update-cmd": "vendor/bin/cghooks update",
-        "test": "co-phpunit --prepend test/bootstrap.php -c phpunit.xml --colors=always",
-        "cs-fix": "php-cs-fixer fix $1",
-        "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./app ./config",
-        "cghooks": "vendor/bin/cghooks",
+        "post-install-cmd": "php vendor/bin/cghooks add --ignore-lock",
+        "post-update-cmd": "php vendor/bin/cghooks update",
+        "test": "php vendor/bin/co-phpunit --prepend test/bootstrap.php -c phpunit.xml --colors=always",
+        "test-": "phpdbg -dmemory_limit=1024M -qrr ./vendor/bin/co-phpunit --prepend test/bootstrap.php -c phpunit.xml --verbose",
+        "cs-fix": "php vendor/bin/php-cs-fixer fix $1",
+        "analyse": "php vendor/bin/phpstan analyse --memory-limit 300M -c phpstan.neon ./app ./config",
+        "cghooks": "php vendor/bin/cghooks",
         "start": [
             "Composer\\Config::disableProcessTimeout",
             "php ./bin/hyperf.php start"
