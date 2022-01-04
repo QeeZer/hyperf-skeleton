@@ -10,6 +10,6 @@ vendor/
 .env
 .DS_Store
 .phpunit*
+.phpdoc
 *.cache
 cghooks.lock
-

@@ -15,6 +15,8 @@ namespace App\Controller;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
+use Hyperf\Validation\Contract\ValidatorFactoryInterface;
+use Hyperf\Validation\ValidationException;
 use Psr\Container\ContainerInterface;
 use QeeZer\HyperfApiResponder\Responder;
 
@@ -39,4 +41,24 @@ abstract class AbstractController
      * @var ResponseInterface
      */
     protected $response;
+
+    /**
+     * @Inject
+     * @var ValidatorFactoryInterface
+     */
+    protected $validatorFactory;
+
+    /**
+     * validate data.
+     */
+    protected function validate(array $rules, array $messages = []): array
+    {
+        $validator = $this->validatorFactory->make($this->request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+
+        return $validator->validated();
+    }
 }

@@ -27,6 +27,7 @@
         "hyperf/paginator": "^2.2",
         "hyperf/process": "~2.2.0",
         "hyperf/redis": "~2.2.0",
+        "hyperf/validation": "^2.2",
         "qeezer/hyperf-api-responder": "^1.0.0"
     },
     "require-dev": {
