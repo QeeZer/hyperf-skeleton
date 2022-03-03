@@ -6,9 +6,14 @@
 parameters:
   reportUnmatchedIgnoredErrors: false
   level: 4
+  parallel:
+    maximumNumberOfProcesses: 8
+  tmpDir: runtime/phpStan
   paths:
     - app
     - test
+  dynamicConstantNames:
+    - BASE_PATH
   ignoreErrors:
     - '#Static call to instance method Hyperf\\HttpServer\\Router\\Router::[a-zA-Z0-9\\_]+\(\)#'
     - '#Static call to instance method Hyperf\\DbConnection\\Db::[a-zA-Z0-9\\_]+\(\)#'

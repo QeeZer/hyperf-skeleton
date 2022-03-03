@@ -75,8 +75,7 @@
             "pre-commit": [
                 "echo committing as $(git config user.name)",
                 "composer cs-fix",
-                "composer analyse",
-                "composer test"
+                "composer analyse && composer test"
             ],
             "post-merge": "composer install"
         }
@@ -93,7 +92,7 @@
         "test": "php vendor/bin/co-phpunit --prepend test/bootstrap.php -c phpunit.xml --colors=always",
         "test-": "phpdbg -dmemory_limit=1024M -qrr ./vendor/bin/co-phpunit --prepend test/bootstrap.php -c phpunit.xml --verbose",
         "cs-fix": "php vendor/bin/php-cs-fixer fix $1",
-        "analyse": "php vendor/bin/phpstan analyse --memory-limit 300M -c phpstan.neon ./app ./config",
+        "analyse": "php vendor/bin/phpstan analyse --memory-limit 300M -c phpstan.neon",
         "cghooks": "php vendor/bin/cghooks",
         "start": [
             "Composer\\Config::disableProcessTimeout",
